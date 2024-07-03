@@ -1,0 +1,351 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="jumbo-heading">
+      <h1>{{ "productsPage.product" | translate }}</h1>
+    </div>
+  </div>
+  <!-- /jumbo-heading -->
+</div>
+<!-- Hero Section Begin -->
+<section class="hero">
+  <div class="container">
+    <div class="row all-section" [ngClass]="{'two-main-section': currentLang==='ar'}">
+      <div class="col-lg-9">
+        <div class="hero__search">
+          <div class="hero__search__form">
+            <form [ngClass]="{'all-text-section': currentLang==='ar'}">
+              <div>
+                <div class="hero__search__categories">
+                  {{ "productsPage.allCategories" | translate }}
+                  <span class="arrow_carrot-down"></span>
+                </div>
+                <input type="text" [(ngModel)]="searchValue" name="searchTerm" (input)="searchProducts()"
+                  [placeholder]="'productsPage.inputSearchPlaceholder' | translate ">
+              </div>
+              <button type="submit" class="site-btn" [ngClass]="{'scrolled': isScrolled}">{{ "productsPage.SearchBtn" |
+                translate }}</button>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+          <section class="animal_section layout_padding">
+            <div class="container">
+              <div class="animal_container">
+                <div class="box b1">
+                  <div class="img-box">
+                    <img src="../../../assets/dog.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      {{ "productsPage.Dogs" | translate }}
+                    </h5>
+                    <p>
+                      {{ "productsPage.dogDescription" | translate }}
+                    </p>
+                  </div>
+                </div>
+                <div class="box b2">
+                  <div class="img-box">
+                    <img src="../../../assets/bird.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      {{ "productsPage.Birds" | translate }}
+                    </h5>
+                    <p>
+                      {{ "productsPage.birdDescription" | translate }} </p>
+                  </div>
+                </div>
+                <div class="box b1">
+                  <div class="img-box">
+                    <img src="../../../assets/fish.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      {{ "productsPage.Fishes" | translate }}
+                    </h5>
+                    <p>
+                      {{ "productsPage.fishDescription" | translate }} </p>
+                  </div>
+                </div>
+                <div class="box b2">
+                  <div class="img-box">
+                    <img src="../../../assets/cat.jpg" alt="">
+                  </div>
+                  <div class="detail-box">
+                    <h5>
+                      {{ "productsPage.Cats" | translate }}
+                    </h5>
+                    <p>
+                      {{ "productsPage.catDescription" | translate }} </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </div>
+      <div class="col-lg-3">
+        <div class="hero__categories">
+          <div class="hero__categories__all" (click)="toggleCategories()"
+            [ngClass]="{'scrolled': isScrolled,'two-main-section': currentLang==='ar'}" [attr.dir]="getDirection()">
+            <i class="fa fa-bars" [ngClass]="{'two-main-section': currentLang==='ar'}"></i>
+            <span>{{ "productsPage.allCategories" | translate }}</span>
+          </div>
+          <div class="categories-wrapper" [ngClass]="{'show': showCategories, 'hide': !showCategories}">
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne"
+                    [ngClass]="{'scrolled2': isScrolled,'two-main-section': currentLang==='ar'}"
+                    [attr.dir]="getDirection()">
+                    {{ "productsPage.Dogs" | translate }}
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body" [attr.dir]="getDirection()">
+                    <ul>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('dogs', 'foods')">
+                          {{ "productsPage.food" | translate }}
+                        </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('dogs', 'care')">
+                          {{ "productsPage.CareAndHygiene" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('dogs', 'houses')">
+                          {{ "productsPage.houses" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('dogs', 'accessories')">
+                          {{ "productsPage.Accessories" | translate }} </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
+                    [ngClass]="{'scrolled2': isScrolled,'two-main-section': currentLang==='ar'}"
+                    [attr.dir]="getDirection()">
+                    {{ "productsPage.Cats" | translate }}
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body" [attr.dir]="getDirection()">
+                    <ul>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('cats', 'foods')">
+                          {{ "productsPage.food" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('cats', 'care')">
+                          {{ "productsPage.CareAndHygiene" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('cats', 'houses')">
+                          {{ "productsPage.houses" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('cats', 'accessories')">
+                          {{ "productsPage.Accessories" | translate }} </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+                    [ngClass]="{'scrolled2': isScrolled,'two-main-section': currentLang==='ar'}"
+                    [attr.dir]="getDirection()">
+                    {{ "productsPage.Birds" | translate }}
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body" [attr.dir]="getDirection()">
+                    <ul>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('birds', 'foods')">
+                          {{ "productsPage.feed" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('birds', 'care')">
+                          {{ "productsPage.CareAndHygiene" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('birds', 'houses')">
+                          {{ "productsPage.Cages" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('birds', 'accessories')">
+                          {{ "productsPage.Accessories" | translate }} </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                    [ngClass]="{'scrolled2': isScrolled,'two-main-section': currentLang==='ar'}"
+                    [attr.dir]="getDirection()">
+                    {{ "productsPage.Fishes" | translate }}
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                  <div class="accordion-body" [attr.dir]="getDirection()">
+                    <ul>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('fishes', 'foods')">
+                          {{ "productsPage.food" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('fishes', 'care')">
+                          {{ "productsPage.plantsAndRocks" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('fishes', 'houses')">
+                          {{ "productsPage.tankAndFilters" | translate }} </label>
+                      </li>
+                      <li>
+                        <label>
+                          <input type="radio" name="subcategory" (click)="filterProducts('fishes', 'accessories')">
+                          {{ "productsPage.Accessories" | translate }} </label>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Hero Section End -->
+
+<!-- Featured Section Begin -->
+<section class="featured spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-title">
+          <h2>{{ "productsPage.petsProductsTitle" | translate }}</h2>
+        </div>
+        <div class="featured__controls">
+          <ul>
+            <li [class.active]="activeFilter === '*'"
+              (click)="handleClick('*',''); getPetsData(currentLang === 'en'? 'products.json': 'ar-products.json')">
+              {{
+              "productsPage.all" | translate
+              }}</li>
+            <li [class.active]="activeFilter === '.oranges'"
+              (click)="handleClick('.oranges','dogs'); getPetsData(currentLang === 'en'? 'dogs-products.json': 'ar-dogs-products.json')">
+              {{ "productsPage.Dogs"
+              | translate }}</li>
+            <li [class.active]="activeFilter === '.fresh-meat'"
+              (click)="handleClick('.fresh-meat', 'cats'); getPetsData(currentLang === 'en'? 'cats-products.json': 'ar-cats-products.json')">
+              {{
+              "productsPage.Cats" | translate }}
+            </li>
+            <li [class.active]="activeFilter === '.vegetables'"
+              (click)="handleClick('.vegetables', 'fishes'); getPetsData(currentLang === 'en'? 'fishes-products.json': 'ar-fishes-products.json')">
+              {{
+              "productsPage.Fishes" | translate }}
+            </li>
+            <li [class.active]="activeFilter === '.fastfood'"
+              (click)="handleClick('.fastfood', 'birds'); getPetsData(currentLang === 'en'? 'birds-products.json': 'ar-birds-products.json')">
+              {{
+              "productsPage.Birds" | translate }}</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <section id="product1" class="section-p1">
+      <div class="pro-container">
+        <div class="pro" *ngFor="let product of products" (click)="onDetailsProduct(product)"
+          [attr.dir]="getDirection()">
+          <img src="../../../assets/products/{{product.image}}" alt="productImage">
+          <div class="des">
+            <h4 class="product-name">{{ product?.name?.slice(0, 20) }}<span
+                *ngIf="product?.name?.slice(0, 20) !== product.name">..</span></h4>
+            <h5>{{ product?.description?.slice(0, 60) }}<span
+                *ngIf="product?.description?.slice(0, 60) !== product?.description">..</span></h5>
+            <div class="star" dir="ltr">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div dir="ltr" class="d-flex align-items-center gap-1">
+              <h4 *ngIf="currentLang === 'ar'"> {{"carouselPetsProducts.LE" | translate }}</h4>
+              <h4>{{ product.price }}</h4>
+              <h4 *ngIf="currentLang === 'en'"> {{"carouselPetsProducts.LE" | translate }}</h4>
+            </div>
+          </div>
+          <!-- <a (click)="addToCart($event, product)"><i class="fal fa-shopping-cart cart"></i></a> -->
+          <span class="circle" (click)="addToCart($event, product)">
+            <span class="icon icon-cart">
+              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 459.529 459.529"
+                style="enable-background:new 0 0 459.529 459.529;" xml:space="preserve">
+                <g>
+                  <path d="M17,55.231h48.733l69.417,251.033c1.983,7.367,8.783,12.467,16.433,12.467h213.35c6.8,0,12.75-3.967,15.583-10.2
+                                          						l77.633-178.5c2.267-5.383,1.7-11.333-1.417-16.15c-3.117-4.817-8.5-7.65-14.167-7.65H206.833c-9.35,0-17,7.65-17,17
+                                          						s7.65,17,17,17H416.5l-62.9,144.5H164.333L94.917,33.698c-1.983-7.367-8.783-12.467-16.433-12.467H17c-9.35,0-17,7.65-17,17
+                                          						S7.65,55.231,17,55.231z" />
+                  <path d="M135.433,438.298c21.25,0,38.533-17.283,38.533-38.533s-17.283-38.533-38.533-38.533S96.9,378.514,96.9,399.764
+                                          						S114.183,438.298,135.433,438.298z" />
+                  <path d="M376.267,438.298c0.85,0,1.983,0,2.833,0c10.2-0.85,19.55-5.383,26.35-13.317c6.8-7.65,9.917-17.567,9.35-28.05
+                                          						c-1.417-20.967-19.833-37.117-41.083-35.7c-21.25,1.417-37.117,20.117-35.7,41.083
+                                          						C339.433,422.431,356.15,438.298,376.267,438.298z" />
+                </g>
+              </svg>
+            </span>
+          </span>
+        </div>
+
+      </div>
+      <ngb-pagination [maxSize]="10" [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+        (pageChange)="applyPagination()">
+      </ngb-pagination>
+    </section>
+  </div>
+</section>
+<!-- Featured Section End -->

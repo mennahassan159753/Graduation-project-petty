@@ -1,0 +1,252 @@
+.my-container {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+:root {
+  --main-transition: 0.3s;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .my-container {
+    width: calc(100vw - 150px);
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .my-container {
+    width: calc(100vw - 150px);
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .my-container {
+    width: calc(100vw - 150px);
+  }
+}
+
+/* start hero */
+
+.right-hero img {
+  position: relative;
+  width: 600px;
+  /* max-width: 100%; */
+  animation: up-and-down 5s linear infinite;
+}
+
+/* start animation */
+
+@keyframes up-and-down {
+
+  0%,
+  100% {
+    top: 0;
+  }
+
+  50% {
+    top: -50px;
+  }
+}
+
+/* end animation */
+
+.landing {
+  background: linear-gradient(102deg, #130e87 -9%, #c64881 139%);
+  height: 100vh;
+}
+
+.wave {
+  position: absolute;
+  bottom: -369px;
+  /* left: -60px; */
+  /* width: ; */
+}
+
+.landing .my-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  align-items: center;
+  position: relative;
+}
+
+.landing .my-container.ar {
+  display: grid;
+  grid-template-columns: 50% 40%;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.left-hero>h1 {
+  /* color: #fff; */
+  /* color: #ffa372; */
+  color: #fe9073;
+  font-size: 38px;
+  padding-top: 130px;
+  font-weight: 700;
+}
+
+.left-hero.ar>h1 {
+  padding-top: 120px;
+}
+
+.left-hero>p {
+  color: #d7d1d1de;
+  padding-top: 5px;
+  font-size: 16px;
+  padding-bottom: 18px;
+  line-height: 1.8;
+}
+
+.right-hero {
+  width: 460px;
+  padding-top: 120px;
+  margin-left: auto;
+}
+
+.right-hero.ar {
+  width: 460px;
+  padding-top: 140px;
+  margin-left: auto;
+}
+
+.Our-Services-btn {
+  background-color: #130e87;
+  cursor: pointer;
+  display: inline-block;
+  box-shadow: 0px 0px 0px 0px #5063a1;
+  border: 1px solid #e2e6e93d;
+  transition: 0.3s;
+}
+
+.Our-Services-btn:hover {
+  /* background: linear-gradient(120deg, rgb(179 34 167), #ed1d7dd4); */
+  /* background-color: #cc156e; */
+  /* background: linear-gradient(to right, #f19553 21%, #c22e76 95%); */
+  /* background: linear-gradient(to right, #f19553 21%, #c22e76 149%); */
+  background: #ee7d72;
+  border: none;
+  transform: scale(1, 1);
+}
+
+.Our-Services-btn button {
+  color: #fff;
+  padding-inline: 22px;
+  padding-block: 10px;
+}
+
+.Our-Services-btn button.btn-services-ar {
+  padding-inline: 41px;
+  padding-block: 9px;
+  font-size: 15px;
+}
+
+/* Medium */
+@media (max-width: 1080px) {
+  .landing .my-container.ar {
+    display: grid;
+    grid-template-columns: 45% 51%;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+}
+
+@media (max-width: 992px) {
+  .landing .my-container.ar {
+    display: grid;
+    grid-template-columns: 41% 58%;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .right-hero {
+    width: 439px;
+    padding-top: 125px;
+    margin-left: auto;
+  }
+
+  .wave {
+    display: none;
+  }
+
+  .left-hero>h1 {
+    font-size: 32px;
+    padding-top: 160px;
+  }
+
+  .left-hero>p {
+    padding-top: 5px;
+    font-size: 14px;
+    padding-bottom: 18px;
+  }
+
+  .pet-icon {
+    position: relative;
+  }
+}
+
+@media (max-width: 869px) {
+  .landing .my-container.ar {
+    display: block;
+  }
+
+  .right-hero {
+    display: none !important;
+  }
+
+  .landing .my-container {
+    display: block;
+  }
+
+  .left-hero {
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .left-hero>h1 {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 770px) {
+  .left-hero>p {
+    padding-inline: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .left-hero>h1 {
+    padding-top: 80px;
+    font-size: 25px;
+  }
+
+  .left-hero>p {
+    font-size: 12px;
+  }
+}
+
+/* end hero */
+.logo-of-nav {
+  color: #c72a7f !important;
+}
+
+@media (max-width: 360px) {
+  /* .left-hero.ar>h1 {
+    padding-top: 85px;
+  } */
+
+  .left-hero>p {
+    font-size: 11px;
+  }
+
+  /* .left-hero>h1 {
+    padding-top: 85px;
+  } */
+}

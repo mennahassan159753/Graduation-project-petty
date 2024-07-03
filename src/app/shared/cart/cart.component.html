@@ -1,0 +1,63 @@
+<section class="side-cart-wrapper" [ngClass]="sharedServiceService.isCartButton ? 'activeMenu' : ''"
+  [attr.dir]="getDirection()">
+  <div class="cart-container-wrapper">
+    <div class="side-cart-container">
+      <div class="side-cart-header">
+        <h2 class="cart-heading">{{ "cartSidebar.cartTitle" | translate}}</h2>
+        <div class="close" (click)="closeSideMenu()">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </div>
+      </div>
+      <div class="side-cart-body">
+        <div class="product-cart">
+          <div class="product" *ngFor="let product of cartsMenu; let idx = index">
+            <div class="image-heading">
+              <img src="../../../assets/products/{{ product.image }}" alt="" />
+            </div>
+            <div class="cartItem-body">
+              <div>
+                <h5>
+                  {{ product?.name?.slice(0, 12) }}<span *ngIf="product?.name !== product?.name?.slice(0, 12)">..</span>
+                </h5>
+                <p>{{ product.description }}</p>
+              </div>
+              <div class="item-edit">
+                <div class="remove-from-cart" (click)="deleteFromCart(idx)">
+                  <i class="fa-solid fa-trash"></i>
+                </div>
+                <div class="plus-minus">
+                  <!-- <span class="operands-heading">{{ "cartSidebar.itemQty" | translate}}</span> -->
+                  <div>
+                    <div (click)="decreaseProdQty(product)" class="operands minus">
+                      <i class="fa-solid fa-minus"></i>
+                    </div>
+                    <div class="operands number">
+                      {{ product.itemQuantity }}
+                    </div>
+                    <div (click)="increaseProdQty(product)" class="operands plus">
+                      <i class="fa-solid fa-plus"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="links-collection">
+        <div class="links">
+          <button class="link-button" (click)="onCartPage()">{{ "cartSidebar.CartsPageBtn" |
+            translate}}</button>
+        </div>
+        <!-- <div class="links">
+                    <button class="link-button">Checkout</button>
+                </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-toggle-buttons [badgeNumber]="cartsMenu.length" [typeClasses]="'cart-toggle'"
+  [btnClasses]="'fa-solid fa-cart-shopping'" (click)="sideOpenHandler()"></app-toggle-buttons>
+
+<!-- [badgeNumber]="sharedService." -->

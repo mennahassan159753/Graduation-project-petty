@@ -1,0 +1,75 @@
+<div class="container" [attr.dir]="getDirection()">
+    <div class="cart">
+        <div class="row1">
+            <div class="image">
+                <img src="../../../../assets/products/{{ product.image }}" width="100%" id="ProductImg">
+            </div>
+            <div class="">
+                <span class="badge badge-darken">{{ productCategory }}</span>
+                <h1 class="product-title">{{ product.name }}</h1>
+                <div class="reviews">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <p>{{ product.rating }}</p>
+                </div>
+
+                <div class="price">
+                    <span>{{ product.price }} {{ 'productDetails.currency' |translate }}</span>
+                    <span>{{ product.price +20 }} {{ 'productDetails.currency' |translate }}</span>
+                </div>
+                <div class="qty">
+                    <div class="product-addition">
+                        <div class="item-quantity">
+                            <div class="quantity-heading">{{ 'productDetails.quantity' |translate }}</div>
+                        </div>
+                        <div class="plus-minus">
+                            <div (click)="subtractProduct()" class="operands minus">
+                                <i class="fa-solid fa-minus"></i>
+                            </div>
+                            <div class="operands number">{{ product.itemQuantity }}</div>
+                            <div (click)="addProduct()" class="operands plus">
+                                <i class="fa-solid fa-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="product" class="product-inf">
+                    <ul>
+                        <li class="active"><a>{{ 'productDetails.description' |translate }}</a></li>
+                    </ul>
+                    <div class="tabs-content mt-3 ps-2">
+                        <div id="Description">
+                            <p>{{ product.description }}</p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="buttons mt-4">
+                    <div class="row cart-button">
+                        <div class="col-md-6 add-cart">
+                            <a class="custom-btn btn" (click)="addToCart($event, product)">{{ 'productDetails.cartBtn'
+                                |translate }}<i class="fa-solid fa-cart-shopping"></i></a>
+                        </div>
+                        <div class="col-md-6 func-wrapper">
+                            <button [class]="
+                                    favoriteBtnToggle                               
+                                               ? 'add-to-favs btn favs-active'
+                                              : 'add-to-favs btn'
+                                          " (click)="favoritesHandler()">
+                                <span class="pe-3">{{ 'productDetails.favBtn' |translate }}</span>
+                                <i [class]="
+                                              favoriteBtnToggle
+                                                ? 'fa-solid fa-heart'
+                                                : 'fa-solid fa-heart-crack'
+                                            "></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

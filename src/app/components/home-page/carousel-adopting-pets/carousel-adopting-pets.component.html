@@ -1,0 +1,57 @@
+<div class="row justify-content-center text-center mb-1 title-products">
+  <div class="col-md-10 col-lg-8">
+    <div class="header-section">
+      <h2 class="main-title fw-bold">{{"ourServicesSection.adopting" | translate }}</h2>
+    </div>
+  </div>
+</div>
+<div class="main-cart main-background">
+  <p-carousel [value]="pets" [numVisible]="2" [numScroll]="2" [circular]="true"
+    [responsiveOptions]="carouselResponsiveOptions" [circular]="true" [autoplayInterval]="3000">
+    <ng-template let-pet pTemplate="item">
+      <div class="product-card mx-3 card  pattern" [attr.dir]="getDirection()">
+        <section id="adoption-home" class="container-fluid ps-0 pr-0 overlay-dark bg-fixed">
+          <div class="container">
+
+            <div class="adopt-card res-margin ">
+              <div class="adopt-image ">
+                <img class="product-card-img-top" src="../../../assets/pets/{{pet.pet_information.image_url}}" alt="">
+              </div>
+              <div class="caption-adoption">
+                <!-- List -->
+                <ul class="list-unstyled">
+                  <h4 class="product-card-name">{{ pet.pet_information.name.slice(0, 12) }}<span
+                      *ngIf="pet.pet_information.name.slice(0, 12) !== pet.pet_information.name">..</span>
+                  </h4>
+                  <p class="product-card-para pb-2">{{"carouselAdoptingPets.breed" | translate }} : {{
+                    pet.pet_information.breed }}</p>
+                  <p class="product-card-para pb-2">{{"carouselAdoptingPets.gender" | translate }}: {{
+                    pet.pet_information.gender }}</p>
+                  <p class="product-card-para pb-2">{{"carouselAdoptingPets.age" | translate }}: {{
+                    pet.pet_information.age }} {{"carouselAdoptingPets.year" | translate }} </p>
+                  <!-- <p class="product-card-para pb-2">{{"carouselAdoptingPets.weight" | translate }}: {{
+                    pet.pet_information.Weight }} Kg
+                  </p> -->
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-md-12 mt-3">
+              <div class="row">
+                <p class="subtitle product-card-para ">{{"carouselAdoptingPets.adoptionTextCart" | translate }}</p>
+                <div class="col-md-12 card-button"><a>
+                    <div class="card-button-inner bag-button" (click)="onMoreInfo(pet)">
+                      {{"carouselAdoptingPets.moreInfo"
+                      | translate }}
+                    </div>
+                  </a></div>
+              </div>
+            </div>
+
+
+          </div>
+        </section>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>

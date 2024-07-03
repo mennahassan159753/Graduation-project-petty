@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="wrapper">
+    <router-outlet></router-outlet>
+    <div>
+        <app-favorite></app-favorite>
+    </div>
+    <app-cart></app-cart>
+</div>
+<app-footer></app-footer>
+
+<div *ngIf="sharedService.isFavButton || sharedService.isCartButton" (click)="sideCloseHandler()" class="overlay"></div>

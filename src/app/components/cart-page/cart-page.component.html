@@ -1,0 +1,238 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+
+<div class="formbold-main-wrapper" [attr.dir]="getDirection()" [ngClass]="{'all-text-section': currentLang==='ar'}">
+
+
+  <div class="formbold-form-wrapper">
+    <form [formGroup]="orderForm">
+      <div class="formbold-steps">
+        <ul>
+          <li [ngClass]="{'active': currentStep === 1}" (click)="goToStep(1)">
+            <span>1</span>
+            {{ "cartPage.title1" | translate }}
+          </li>
+          <li [ngClass]="{'active': currentStep === 2}" (click)="goToStep(2)">
+            <span>2</span>
+            {{ "cartPage.title2" | translate }}
+          </li>
+          <li [ngClass]="{'active': currentStep === 3}" (click)="goToStep(3)">
+            <span>3</span>
+            {{ "cartPage.title3" | translate }}
+          </li>
+        </ul>
+      </div>
+
+      <div [ngClass]="{'active': currentStep === 1}" class="formbold-form-step-1">
+        <div class="contentbar">
+          <div class="row">
+            <div class="col-md-12 col-lg-12 col-xl-12 custom-padding-sm">
+              <div class="card mx-3 m-b-30">
+                <div class="card-header bg-dark d-flex justify-content-between align-items-center">
+                  <h5 class=" card-title">{{ "cartPage.cartTitel" | translate }}</h5>
+                  <button class="btn btn-danger mt-0 btn-sm" (click)="onClearCart()">
+                    <i class="fa fa-trash-alt main-icon"
+                      [ngClass]="{'all-text-section': currentLang==='ar'}"></i><span>{{ "cartPage.emptyCart" |
+                      translate
+                      }}</span></button>
+                </div>
+                <div class="card-body">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-12 col-xl-12">
+                      <div class="cart-container">
+                        <div class="cart-head">
+                          <div class="table-responsive">
+                            <table class="table table-borderless">
+                              <thead>
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">{{ "cartPage.action" | translate
+                                    }}
+                                  </th>
+                                  <th scope="col">{{ "cartPage.productPhoto" |
+                                    translate }}</th>
+                                  <th scope="col">{{ "cartPage.productName" |
+                                    translate }}</th>
+                                  <th scope="col">{{ "cartPage.productCategory" |
+                                    translate }}</th>
+                                  <th scope="col">{{ "cartPage.productQuantity" |
+                                    translate }}</th>
+                                  <th scope="col">{{ "cartPage.productPrice" |
+                                    translate }}</th>
+                                  <th scope="col" class="text-right">{{
+                                    "cartPage.productTotal" | translate }}</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let product of cartProducts; let i=index">
+                                  <th scope="row">{{ i+1 }}</th>
+                                  <td class="d-flex justify-content-start ms-3" style="cursor: pointer;"
+                                    (click)="deleteProduct(i)">
+                                    <a class="text-danger">
+                                      <i class="fa-solid fa-trash-can"></i>
+
+                                    </a>
+                                  </td>
+                                  <td><img src="../../../assets/products/{{ product.image }}" class="img-fluid"
+                                      width="40" alt="product">
+                                  </td>
+                                  <td>{{ product.name }}</td>
+                                  <td>{{ currentLang === 'en' ? product.category : product.categoryAr }}</td>
+                                  <td>
+                                    <div class="form-group mb-0">
+                                      <input type="number" class="form-control cart-qty" name="cartQty{{i}}"
+                                        id="cartQty{{i}}" min="0" [ngModelOptions]="{standalone: true}"
+                                        [(ngModel)]="product.itemQuantity" (change)="getCartTotalPrice()">
+
+                                    </div>
+                                  </td>
+                                  <td>{{ product.price }} {{
+                                    "cartPage.currency"
+                                    |
+                                    translate }}</td>
+                                  <td class="text-right">{{ product.itemQuantity *
+                                    product.price | number }}
+                                    {{
+                                    "cartPage.currency"
+                                    |
+                                    translate }}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                        <div class="cart-body">
+                          <div class="row">
+                            <div class="col-xs-12 col-sm-6  order-2 order-lg-1 col-lg-5
+                                                        col-xl-6">
+                              <div class="order-note">
+                                <div class="form-group">
+                                  <label for="specialNotes">{{
+                                    "cartPage.messageLabel"
+                                    |
+                                    translate }}:</label>
+                                  <textarea class="form-control mt-1" formControlName="message" id="specialNotes"
+                                    rows="3" [placeholder]="'cartPage.message'
+                                                                                        |
+                                                                                        translate"></textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 order-xs-1 order-lg-2 col-lg-7
+                                                        col-xl-6">
+                              <div class="order-total table-responsive ">
+                                <table class="table table-borderless text-right tdwidth">
+                                  <tbody>
+                                    <tr>
+                                      <td>{{ "cartPage.subTotal"
+                                        |
+                                        translate }} :</td>
+                                      <td>{{ total | number }} {{
+                                        "cartPage.currency"
+                                        |
+                                        translate }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td>{{ "cartPage.shippingPrice"
+                                        |
+                                        translate }} :</td>
+                                      <td>{{ shipping }} {{
+                                        "cartPage.currency"
+                                        |
+                                        translate }}</td>
+                                    </tr>
+
+                                    <tr>
+                                      <td>{{ "cartPage.tax"
+                                        |
+                                        translate }} :</td>
+                                      <td>{{ tax }} {{
+                                        "cartPage.currency"
+                                        |
+                                        translate }}</td>
+                                    </tr>
+                                    <tr>
+                                      <td class="f-w-7 font-18">
+                                        <h4>{{ "cartPage.productTotal"
+                                          |
+                                          translate }} :</h4>
+                                      </td>
+                                      <td class="f-w-7 font-18">
+                                        <h4>{{ total | number
+                                          }} {{
+                                          "cartPage.currency"
+                                          |
+                                          translate }}</h4>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div [ngClass]="{'active': currentStep === 2}" class="formbold-form-step-2">
+        <div class="formbold-input-flex">
+          <div>
+            <label for="fullName" class="formbold-form-label"> {{ "cartPage.fullName"
+              |
+              translate }} </label>
+            <input type="text" [placeholder]="'cartPage.fullNamePlaceholder' | translate" formControlName="fullName"
+              id="fullName" class="formbold-form-input" />
+          </div>
+          <div>
+            <label for="address" class="formbold-form-label"> {{ "cartPage.address"
+              |
+              translate }} </label>
+            <input type="text" id="address" formControlName="address"
+              [placeholder]="'cartPage.addressPlaceholder' | translate" class="formbold-form-input" />
+          </div>
+          <div>
+            <label for="phone" class="formbold-form-label"> {{ "cartPage.phoneNumber"
+              |
+              translate }} </label>
+            <input type="text" id="phone" formControlName="phone" placeholder="01114823245"
+              class="formbold-form-input" />
+          </div>
+        </div>
+      </div>
+
+      <div [ngClass]="{'active': currentStep === 3}" class="formbold-form-step-3">
+        <div class="formbold-form-confirm ">
+          <h4>{{ total | number
+            }} {{ "cartPage.confirmMessageHeader"
+            |
+            translate }} {{
+            "cartPage.currency"
+            |
+            translate }}</h4>
+          <p>{{ "cartPage.confirmMessageDescription"
+            |
+            translate }}</p>
+
+
+        </div>
+      </div>
+
+      <div class="formbold-form-btn-wrapper">
+        <button type="button" class="formbold-back-btn formbold-btn-2" (click)="goBack()" *ngIf="currentStep > 1">
+          {{ "cartPage.backBtn" | translate }}
+        </button>
+        <button type="button" class="formbold-btn" (click)="nextOrSubmit()">
+          {{ (currentStep === 3 ? 'cartPage.sendBtn' : 'cartPage.nextBtn') | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

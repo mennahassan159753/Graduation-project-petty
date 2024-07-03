@@ -1,0 +1,119 @@
+.favorites-toggle {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  left: 0%;
+  border: none;
+  scale: 1;
+  color: white;
+  outline: none;
+  top: 32%;
+  z-index: 100000000;
+
+  & button {
+    color: white;
+  }
+}
+
+.favorites-toggle button {
+  /* background: linear-gradient(28deg, rgb(167 22 122 / 96%), #d1156c); */
+  /* background: linear-gradient(to right, #ff7c38 132%, #d59d0000 221%); */
+  /* background: linear-gradient(to right, #fc842e 5%, #fcc221 95%); */
+  /* background: linear-gradient(to right, #f19553 21%, #fcc221 95%); */
+  /* background: linear-gradient(to right, #f19553 54%, #c22e76 140%); */
+  /* background: linear-gradient(to right, #f19553 64%, #c22e76 140%); */
+  /* background-color: #ee7d72; */
+  background-color: #ee7b70;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 0px 2px 2px 0px;
+  padding: 10px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.cart-toggle {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  left: 0%;
+  border: none;
+  scale: 1;
+  color: white;
+  outline: none;
+  top: 42% !important;
+  z-index: 100000000;
+
+  & button {
+    color: white;
+  }
+}
+
+.cart-toggle button {
+  transition: 0.3s ease;
+  /* background: linear-gradient(28deg, rgb(167 22 122 / 96%), #d1156c); */
+  /* background: linear-gradient(to right, #ef873c 5%, #f4cb5b 95%); */
+  /* background: linear-gradient(to right, #f19553 21%, #fcc221 95%); */
+  /* background: linear-gradient(to right, #f19553 54%, #c22e76 140%); */
+  /* background: linear-gradient(to right, #f19553 64%, #c22e76 140%); */
+  /* background-color: #c24a8a; */
+  /* background-color: #ee7d72; */
+  background-color: #ee7b70;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 0px 2px 2px 0px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.cart-toggle button.scrolled,
+.favorites-toggle button.scrolled {
+  background-color: #c24a8a !important;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.186);
+  /* z-index: -5; */
+
+  top: 0;
+  left: 0;
+}
+
+.button {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+
+  padding: 3px 7px;
+  font-size: 14px;
+  border-radius: 50%;
+  border: 0.5px solid #0f857b64;
+  color: #0f857c;
+  font-weight: bold;
+  background-color: white;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+}
+
+.favorites-toggle button:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.cart-toggle button:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* .hidden-class {
+  display: none;
+}
+.scrolled {
+  display: block;
+} */

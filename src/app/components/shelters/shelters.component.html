@@ -1,0 +1,146 @@
+<div class="hero">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="second-img"></div>
+  </div>
+</div>
+
+<div class="formbold-main-wrapper" [attr.dir]="getDirection()" [ngClass]="{'all-text-section': currentLang==='ar'}">
+  <div class="formbold-form-wrapper">
+    <form [formGroup]="shelterRequestForm" (ngSubmit)="onSubmit()">
+      <div class="formbold-steps">
+        <ul>
+          <li [class.active]="currentStep === 1" class="formbold-step-menu1">
+            <span [ngClass]="{'scrolled': isScrolled}">1</span>
+            {{ "shelters.userData" | translate }}
+          </li>
+          <li [class.active]="currentStep === 2" class="formbold-step-menu2">
+            <span [ngClass]="{'scrolled': isScrolled}">2</span>
+            {{ "shelters.petData" | translate }}
+          </li>
+          <li [class.active]="currentStep === 3" class="formbold-step-menu3">
+            <span [ngClass]="{'scrolled': isScrolled}">3</span>
+            {{ "shelters.message" | translate }}
+          </li>
+        </ul>
+      </div>
+
+      <div [class.active]="currentStep === 1" class="formbold-form-step-1" formGroupName="user_information">
+        <div class="formbold-input-flex">
+          <div>
+            <label for="fullName" class="formbold-form-label"> {{ "shelters.fullName" | translate }} </label>
+            <input type="text" formControlName="name" [placeholder]="'shelters.fullNamePlaceholder' | translate"
+              id="fullName" class="formbold-form-input" />
+          </div>
+          <div>
+            <label for="phoneNumber" class="formbold-form-label"> {{ "shelters.phoneNumber" | translate }} </label>
+            <input type="text" formControlName="phone_number" placeholder="0100480283" id="phoneNumber"
+              class="formbold-form-input" />
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div>
+            <label for="address" class="formbold-form-label"> {{ "shelters.address" | translate }} </label>
+            <input type="text" formControlName="user_address" id="address"
+              [placeholder]="'shelters.addressPlaceholder' | translate" class="formbold-form-2" />
+          </div>
+          <div>
+            <label for="email" class="formbold-form-label"> {{ "shelters.email" | translate }} </label>
+            <input type="email" formControlName="email" placeholder="example@mail.com" id="email"
+              class="formbold-form-input" />
+          </div>
+        </div>
+      </div>
+
+      <div [class.active]="currentStep === 2" class="formbold-form-step-2">
+        <div class="formbold-input-flex">
+          <div>
+            <label for="address" class="formbold-form-label"> {{ "shelters.petAddress" | translate }} </label>
+            <input type="text" formControlName="pet_address" id="address"
+              [placeholder]="'shelters.petAddressPlaceholder' | translate" class="formbold-form-2" />
+          </div>
+          <!-- <div>
+            <label for="pettype" class="formbold-form-label"> {{ "shelters.petType" | translate }} </label>
+            <select class="form-select mb-3 p-2" formControlName="pet_type" aria-label="Default select example">
+              <option value="dog">{{ "shelters.Dogs" | translate }}</option>
+              <option value="cat">{{ "shelters.Cats" | translate }}</option>
+            </select>
+          </div> -->
+
+          <div class='pet_type'>
+            <label for="pettype" class="formbold-form-label"> {{ "shelters.petType" | translate }} </label>
+
+            <div class='radio-container male-or-female typ-of-pets-2'>
+              <div>
+                <input checked='' formControlName="pet_type" id='pet-gender-female' type='radio' value='dog'>
+                <label for='pet-gender-female'>{{ "shelters.Dogs" | translate }}</label>
+              </div>
+              <div>
+                <input id='pet-gender-male' formControlName="pet_type" type='radio' value='cat'>
+                <label for='pet-gender-male'>{{ "shelters.Cats" | translate }}</label>
+              </div>
+            </div>
+          </div>
+          <!-- <div class='set set-3'>
+
+          </div> -->
+
+
+
+        </div>
+
+        <div class="formbold-input-flex d-block">
+          <label for="img" class="formbold-form-label d-block"> {{ "shelters.petPhoto" | translate }} </label>
+          <div class="file-input">
+            <input type="file" id="img" (change)="onUpload($event)" accept="image/*">
+            <input type="text" [value]="selectedFileName" style="display: none;">
+            <!-- <i class="fa-solid fa-cloud-arrow-up icon-upload" [ngClass]="{'ar': currentLang==='ar'}"></i> -->
+
+          </div>
+        </div>
+      </div>
+
+      <div [class.active]="currentStep === 3" class="formbold-form-step-3">
+        <div class="formbold-form-confirm">
+          <div class='set set-4'>
+            <label for="message" class="formbold-form-label">{{ "shelters.shelterName" | translate }}</label>
+            <div class='radio-container typ-of-pets'>
+              <input formControlName="selectedShelterName" id='one' type='radio' value='one'>
+              <label for='one'>{{ "shelters.shelterOneName" | translate }}</label>
+              <input formControlName="selectedShelterName" id='two' type='radio' value='two'>
+              <label for='two'>{{ "shelters.shelterTwoName" | translate }}</label>
+              <input formControlName="selectedShelterName" id='three' type='radio' value='three'>
+              <label for='three'>{{ "shelters.shelterThreeName" | translate }}</label>
+              <input formControlName="selectedShelterName" id='four' type='radio' value='four'>
+              <label for='four'>{{ "shelters.shelterFourName" | translate }}</label>
+            </div>
+          </div>
+
+          <div class="d-block">
+            <label for="message" class="formbold-form-label">{{ "shelters.message" | translate }}</label>
+            <textarea rows="2" formControlName="message" id="message"
+              [placeholder]="'shelters.messagePlaceholder' | translate"
+              class="formbold-form-input formbold-textarea"></textarea>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="formbold-form-btn-wrapper">
+        <button type="button" class="formbold-back-btn" (click)="prevStep()" *ngIf="currentStep > 1">
+          {{ "shelters.backBtn" | translate }}
+        </button>
+
+        <button type="button" class="formbold-btn" (click)="nextStep()" *ngIf="currentStep < 3">
+          {{ "shelters.nextBtn" | translate }}
+        </button>
+
+        <button type="submit" class="formbold-btn" *ngIf="currentStep === 3" [disabled]="!shelterRequestForm.valid">
+          {{ "shelters.sendBtn" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

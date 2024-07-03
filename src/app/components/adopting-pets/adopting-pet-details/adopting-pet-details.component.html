@@ -1,0 +1,157 @@
+<div class="all-sections">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <div class="jumbo-heading aos-init aos-animate" data-aos="fade-up">
+        <h1>{{ "adoptingDetailsPage.heroTitle" | translate }}</h1>
+      </div>
+    </div>
+    <!-- /jumbo-heading -->
+  </div>
+
+  <h2 class="heading-of-section"> {{ "adoptingDetailsPage.mainTitle" | translate }}
+    <i class="fa-solid fa-paw"></i>
+  </h2>
+
+
+  <div class="page-container my-container">
+    <div class="row page-wrapper" [attr.dir]="getDirection()">
+      <!-- page with sidebar starts -->
+      <div class="col-lg-8 page-with-sidebar">
+        <div class="row custom-width">
+          <div class="adopt-card col-lg-12 ">
+            <!-- Image -->
+            <div class="col-md-4 float-start p-0  adopt-image" [ngClass]="{'ar': currentLang === 'ar'}">
+              <img src="../../../../assets/pets/{{ pet.pet_information.image_url }}" class="img-fluid rounded" alt="">
+            </div>
+            <!-- Name -->
+            <div class="caption-adoption col-md-8 float-end res-margin my-auto">
+              <h1 class="pet-card-name mb-3">{{ pet.pet_information.name}}</h1>
+              <ul class="list-unstyled mt-3">
+                <li class="pet-card-para card-para-2" [ngClass]="{'after': currentLang === 'ar'}">{{
+                  "adoptingDetailsPage.Breed" | translate }}: {{
+                  pet.pet_information.breed
+                  }}</li>
+                <li class="pet-card-para card-para-2 " [ngClass]="{'after': currentLang === 'ar'}">{{
+                  "adoptingDetailsPage.Gender" | translate }}: {{
+                  pet.pet_information.gender }}</li>
+                <li class="pet-card-para  card-para-2 " [ngClass]="{'after': currentLang === 'ar'}">{{
+                  "adoptingDetailsPage.Age" | translate }}: {{
+                  pet.pet_information.age
+                  }}
+                  {{
+                  "adoptingDetailsPage.year" | translate }} </li>
+                <!-- <li class="pet-card-para  card-para-2">{{ "adoptingDetailsPage.Weight" | translate }}: {{
+                  pet.pet_information.weight}} Kg </li> -->
+              </ul>
+              <!-- <h2 class="subtitle">{{ "adoptingDetailsPage.adoptionDescription" | translate }}</h2> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 adopt-me about-pet" [attr.dir]="getDirection()">
+          <h1>{{ "adoptingDetailsPage.AboutPet" | translate }}</h1>
+          <p class="information-of-pets">{{ pet.pet_information.description}}</p>
+        </div>
+      </div>
+      <div id="sidebar" class=" h-100 col-lg-4 user-card pattern3 " [attr.dir]="getDirection()">
+        <div class="widget-area">
+          <h2 class="sidebar-header pt-4 pb-2">{{ "adoptingDetailsPage.UserDetails" | translate }}</h2>
+          <!-- event 1 -->
+          <div class="widget2">
+            <div class="card ">
+              <!-- /card-img -->
+              <div class="card-body">
+                <h4 class=" name-user">{{pet.fullname}}</h4>
+                <ul class="list-inline colored-icons">
+                  <li class="list-inline-item"> <span><i class="fa-solid fa-phone-volume icon "
+                        [ngClass]="{'margin-icon': currentLang==='ar'}"></i>{{pet.phone_number}}
+                    </span>
+                  </li>
+                  <li class="list-inline-item t"> <span><i class="fas fa-map-marker-alt icon"
+                        [ngClass]="{'margin-icon': currentLang==='ar'}"></i>{{pet.address}}</span>
+                  </li>
+                  <li class="list-inline-item  t"> <span><i class="fa-solid fa-envelope icon"
+                        [ngClass]="{'margin-icon': currentLang==='ar'}"></i>
+                      {{pet.email}}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- <div class="pattern">
+              </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-8 page-with-sidebar">
+      <div class="col-lg-12">
+        <h4 class="second-section">{{ "adoptingDetailsPage.questionsTitle" | translate }}</h4>
+        <!-- divider -->
+        <hr class="small-divider left">
+        <div class="accordion ">
+          <div class="card">
+            <div class="card-header">
+              <a class="card-link" data-bs-toggle="collapse" href="#collapseOne">
+                {{ "adoptingDetailsPage.questionOne" | translate }}
+              </a>
+            </div>
+            <div id="collapseOne" class="collapse show" data-bs-parent=".accordion">
+              <div class="card-body-num-2">
+                <p>{{ "adoptingDetailsPage.questionOneAnswer" | translate }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-bs-toggle="collapse" href="#collapseTwo">
+                {{ "adoptingDetailsPage.questionTwo" | translate }}
+              </a>
+            </div>
+            <div id="collapseTwo" class="collapse" data-bs-parent=".accordion">
+              <div class="card-body-num-2">
+                <p>{{ "adoptingDetailsPage.questionTwoAnswer" | translate }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-bs-toggle="collapse" href="#collapseThree">
+                {{ "adoptingDetailsPage.questionThree" | translate }}
+              </a>
+            </div>
+            <div id="collapseThree" class="collapse" data-bs-parent=".accordion">
+              <div class="card-body-num-2">
+                <p>{{ "adoptingDetailsPage.questionThreeAnswer" | translate }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <a class="collapsed card-link" data-bs-toggle="collapse" href="#collapseFour">
+                {{ "adoptingDetailsPage.questionFour" | translate }}
+              </a>
+            </div>
+            <div id="collapseFour" class="collapse" data-bs-parent=".accordion">
+              <div class="card-body-num-2">
+                <p>{{ "adoptingDetailsPage.questionFourAnswer" | translate }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center row d-flex justify-content-center two-btn">
+          <div class="col-md-4 card-button mt-4 ml-2 ml-3">
+            <a href="tel:{{ pet.phone_number}}" class="mt-4">
+              <div class="adopt-me-btn adopt-btn bag-button">
+                {{ "adoptingDetailsPage.adoptBtn" | translate }}
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

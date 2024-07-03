@@ -1,0 +1,98 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+/* PrimeNG */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poetsen+One&display=swap");
+
+/* .poetsen-one-regular {
+  font-family: "Poetsen One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+@font-face {
+  font-family: "Rubik-ArabFont";
+  src: url("./assets/Rubik-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+body.ar {
+  font-family: "Rubik-ArabFont", sans-serif;
+}
+
+body.en {
+  font-family: "Noto Serif", serif;
+}
+
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Serif", serif;
+} */
+
+/* html {
+  scroll-behavior: smooth;
+} */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /* font-family: sans-serif; */
+  /* font-family: "Noto Serif", serif; */
+}
+
+*,
+ul,
+h3 {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  /* font-family: Lato, sans-serif; */
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+/* tostr custom style */
+.toast-success {
+  background-color: #c24a8a !important;
+  /* Example: green background for success toasts */
+}
+
+.toast-error {
+  background-color: #dc3545 !important;
+  /* Example: red background for error toasts */
+}
+
+.toast-warning {
+  background-color: #dc3545 !important;
+  /* Example: yellow background for warning toasts */
+}
+
+.toast-info {
+  background-color: #c24a8a !important;
+  /* Example: blue background for info toasts */
+}
+
+/* Override other styles as needed */
+.toast {
+  color: #fff !important;
+  /* Example: white text for all toasts */
+}

@@ -1,0 +1,91 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+
+<div class="my-5 title-products">
+  <div class="row justify-content-center text-center mb-4 title-products">
+    <div class="col-md-10 col-lg-8">
+      <div class="header-section">
+        <h2 class="main-title fw-bold">{{"ourServicesSection.products" | translate }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <p-carousel [value]="products" [numVisible]="4" [numScroll]="3" [circular]="true"
+    [responsiveOptions]="carouselResponsiveOptions" [circular]="true">
+    <ng-template let-product pTemplate="item">
+      <div class="product-card mx-2 card" (click)="onDetailsProduct(product)" [attr.dir]="getDirection()">
+        <div class="product-card-head mb-3">
+          <img class="product-card-img-top" src="../../../../assets/products/{{product.image}}" alt="">
+
+        </div>
+        <div class="product-card-body">
+          <h4 class="product-card-title mb-1">{{ product?.name?.slice(0, 20) }}<span
+              *ngIf="product?.name?.slice(0, 20) !== product?.name">..</span></h4>
+          <p class="product-card-para">{{ product.description?.slice(0, 55) }}<span
+              *ngIf="product?.description?.slice(0, 35) !== product?.description">..</span></p>
+
+          <div class="row">
+            <div class="col-md-12"><a>
+                <div class=" product-card-price">{{"carouselPetsProducts.price" | translate }}: {{ product.price }}
+                  {{"carouselPetsProducts.LE" | translate }}
+                </div>
+              </a></div>
+            <div class="col-md-12 card-button">
+              <a class="button-cart" [ngClass]="{'active': product.isAddedToCart}" (click)="addToCart($event, product)">
+                <span class="circle">
+                  <span class="icon icon-cart">
+                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 459.529 459.529"
+                      style="enable-background:new 0 0 459.529 459.529;" xml:space="preserve">
+                      <g>
+                        <path d="M17,55.231h48.733l69.417,251.033c1.983,7.367,8.783,12.467,16.433,12.467h213.35c6.8,0,12.75-3.967,15.583-10.2
+                                						l77.633-178.5c2.267-5.383,1.7-11.333-1.417-16.15c-3.117-4.817-8.5-7.65-14.167-7.65H206.833c-9.35,0-17,7.65-17,17
+                                						s7.65,17,17,17H416.5l-62.9,144.5H164.333L94.917,33.698c-1.983-7.367-8.783-12.467-16.433-12.467H17c-9.35,0-17,7.65-17,17
+                                						S7.65,55.231,17,55.231z" />
+                        <path d="M135.433,438.298c21.25,0,38.533-17.283,38.533-38.533s-17.283-38.533-38.533-38.533S96.9,378.514,96.9,399.764
+                                						S114.183,438.298,135.433,438.298z" />
+                        <path d="M376.267,438.298c0.85,0,1.983,0,2.833,0c10.2-0.85,19.55-5.383,26.35-13.317c6.8-7.65,9.917-17.567,9.35-28.05
+                                						c-1.417-20.967-19.833-37.117-41.083-35.7c-21.25,1.417-37.117,20.117-35.7,41.083
+                                						C339.433,422.431,356.15,438.298,376.267,438.298z" />
+                      </g>
+                    </svg>
+                  </span>
+
+                  <span class="icon icon-checkmark">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 511.999 511.999"
+                      style="enable-background:new 0 0 511.999 511.999;" xml:space="preserve">
+                      <g>
+                        <path d="M506.231,75.508c-7.689-7.69-20.158-7.69-27.849,0l-319.21,319.211L33.617,269.163c-7.689-7.691-20.158-7.691-27.849,0
+                                					c-7.69,7.69-7.69,20.158,0,27.849l139.481,139.481c7.687,7.687,20.16,7.689,27.849,0l333.133-333.136
+                                					C513.921,95.666,513.921,83.198,506.231,75.508z" />
+                      </g>
+                    </svg>
+                  </span>
+                </span>
+
+                <span class="button-bg">
+                  <span class="text text-before"> {{"carouselPetsProducts.addToCart" | translate }} </span>
+                  <!-- <span class="text text-after">Added to cart</span> -->
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="border-round m-2 text-center p-2" style="border: 1px solid var(--surface-d)">
+                <div class="mt-4">
+                    <h5 class="mb-1">{{product.name}}</h5>
+                    <h6 class="mt-0 mb-3">${{product.price}}</h6>
+                    <span
+                        [class]="'product-badge status-'+product.inventoryStatus.toLowerCase()">{{product.inventoryStatus}}</span>
+                    <div class="my-5">
+                        <button pButton pRipple icon="pi pi-star-fill"
+                            class="mr-2 p-button-rounded p-button-success mx-2"></button>
+                        <button pButton pRipple icon="pi pi-cog" class="p-button-rounded p-button-info"></button>
+                    </div>
+                </div>
+            </div> -->
+    </ng-template>
+  </p-carousel>
+</div>

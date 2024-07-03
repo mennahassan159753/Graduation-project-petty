@@ -1,0 +1,6 @@
+<div [class]="typeClasses" class="hidden-class">
+  <button class="button" [ngClass]="{'scrolled': isScrolled}">
+    <span *ngIf="badgeNumber > 0" class="badge">{{ badgeNumber }}</span>
+    <i [class]="btnClasses"></i>
+  </button>
+</div>

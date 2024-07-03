@@ -1,0 +1,46 @@
+<section class="favorites-main-container" [ngClass]="sharedService.isFavButton ? 'activeMenu' : ''"
+    [attr.dir]="getDirection()">
+    <div class="inside-wrapper">
+        <div class="heading-title">
+            <h2>{{ "favSidebar.favTitle" | translate }}</h2>
+            <div (click)="closeModal()" class="close">
+                <i class="fa-solid fa-circle-xmark"></i>
+            </div>
+        </div>
+        <div class="favorites-product">
+            <div class="favorite-prod-card" *ngFor="let favProd of favoritesMenu; let i = index">
+                <div class="picture-wrapper">
+                    <img src="../../../assets/products/{{ favProd.image }}" alt="" />
+                </div>
+                <div class="favorites-card-body">
+                    <div class="card-body-title">
+                        <h3>
+                            {{ favProd.name }}
+                        </h3>
+                    </div>
+                    <div class="card-body-description">
+                        <p>{{ favProd.description }}</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <div class="link">
+                        <button (click)="removeFavorite(i, favProd)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="link">
+                        <button (click)="onDetailsProduct(favProd)">{{ "favSidebar.details" | translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="links-collection">
+            <div class="links">
+                <button class="link-button" routerLink="pets/cart">{{ "favSidebar.CartsPageBtn" | translate }}</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-toggle-buttons [badgeNumber]="favoritesMenu.length" [typeClasses]="'favorites-toggle'"
+    [btnClasses]="'fa-solid fa-heart'" (click)="sideOpenHandler()"></app-toggle-buttons>

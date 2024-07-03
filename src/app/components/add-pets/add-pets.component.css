@@ -1,0 +1,861 @@
+.my-container {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Small */
+@media (min-width: 768px) {
+  .my-container {
+    width: 750px;
+  }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+  .my-container {
+    width: 970px;
+  }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+  .my-container {
+    width: 1170px;
+  }
+
+  .main-and-image {
+    gap: 40px;
+  }
+}
+
+h1 {
+  font-size: 1.7rem;
+}
+
+a {
+  color: #31c1ef;
+  text-decoration: none;
+}
+
+.my-container {
+  margin-top: 30px;
+}
+
+.hero {
+  position: relative;
+}
+
+.jumbotron {
+  background: url("../../../assets/upload-your-pets/y-90copy.jpg");
+  text-align: left;
+  margin-bottom: 0px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* padding: 371px 0px 0px 0px; */
+  /* padding: 4rem 0rem; */
+  background-size: cover !important;
+  top: 80px;
+  left: 0px;
+}
+
+.jumbotron::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100 */
+  background: -moz-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  /* Chrome10-25,Safari5.1-6 */
+  /* background: linear-gradient(
+    to right,
+    rgb(0 0 0 / 34%) 0%,
+    rgb(0 0 0 / 29%) 100%
+  ); */
+
+  background: linear-gradient(
+    to right,
+    rgb(0 0 0 / 65%) 0%,
+    rgb(0 0 0 / 60%) 100%
+  );
+
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=1);
+  /* IE6-9 */
+  z-index: 0;
+  position: absolute;
+  top: 0px;
+}
+
+.second-img {
+  background: url("../../../assets/upload-your-pets/6570-removebg-preview.png");
+  text-align: left;
+  margin-bottom: 0px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 131px 0px 233px 0;
+  background-size: contain !important;
+  top: 104px;
+  left: -39px;
+  /* left: 0px;
+  height: 270px; */
+  animation: right-and-left 5s linear infinite;
+}
+
+/* start animation */
+
+@keyframes right-and-left {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: -30px;
+  }
+  50% {
+    left: 0px;
+  }
+  75% {
+    left: 30px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+/* @keyframes right-and-left {
+  0% {
+    left: 0px;
+  }
+  25% {
+    left: -15px;
+  }
+  50% {
+    left: -30px;
+  }
+  75% {
+    left: -15px;
+  }
+  100% {
+    left: 0px;
+  }
+} */
+/* end animation */
+
+@media (max-width: 1155px) {
+  .second-img {
+    text-align: left;
+    margin-bottom: 0px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* padding: 335px 0px 0px 0px; */
+    background-size: contain !important;
+    top: 103px;
+    left: 0px;
+    height: 355px;
+    z-index: 1;
+  }
+}
+
+@media (max-width: 845px) {
+  .second-img {
+    top: 103px;
+    left: 0px;
+    height: 165px;
+  }
+}
+
+@media (max-width: 550px) {
+  .second-img {
+    top: 105px;
+    left: 0px;
+    height: 121px;
+  }
+}
+
+@media (max-width: 530px) {
+  .second-img {
+    top: 109px;
+    left: 0px;
+    height: 121px;
+  }
+}
+
+@media (max-width: 500px) {
+  .second-img {
+    display: none;
+  }
+}
+
+@media (max-width: 419px) {
+  .hero {
+    margin-top: 36px;
+  }
+
+  /* .second-img {
+    top: 0px;
+    left: 0px;
+    height: 90px;
+  } */
+}
+
+.jumbo-heading {
+  margin-bottom: 0px;
+  position: absolute;
+  text-align: left;
+  top: 108px;
+  left: 85px;
+}
+
+.jumbo-heading h1 {
+  color: #fff;
+  /* position: absolute; */
+  top: -100px;
+  font-size: 47px;
+  font-weight: 700;
+  left: 50px;
+}
+
+.heading-of-section {
+  color: #130e87;
+  /* font-size: 2.5em; */
+  font-weight: 700;
+  padding-top: 135px;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .jumbo-heading h1 {
+    left: 0;
+    margin-bottom: 0;
+    top: -67px;
+    font-size: 37px;
+  }
+}
+
+.heading-of-section i {
+  font-size: 22px;
+  transform: rotate(19deg);
+  display: block;
+  color: #ff3190;
+  padding-top: 26px;
+  padding-bottom: 22px;
+  padding-left: 12px;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+*:focus {
+  outline-style: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.step {
+  display: none;
+  /* visibility: hidden; */
+  transition: 0.8s;
+}
+
+.step.active {
+  display: block;
+  /* visibility: visible; */
+}
+
+.signup-container {
+  margin-top: 120px;
+  /* background: #d8aa96; */
+  display: grid;
+  grid-template-columns: 30% 60%;
+  justify-content: center;
+  /* max-width: 900px; */
+}
+
+[type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}
+
+[type="file"] + label {
+  .btn-3 {
+    &::before {
+      /* color: #fff; */
+      /* content: "\f382";
+      font-family: "Font Awesome 5 free"; */
+      font-size: 130%;
+      height: 100%;
+      left: 0;
+      line-height: 2.6;
+      position: absolute;
+      top: -180%;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    &:hover .upload {
+      /* background-color: darken(#fb54a1b3); */
+
+      span {
+        transform: translateY(300%);
+      }
+
+      /* visibility: visible; */
+
+      &::before {
+        top: 0;
+      }
+    }
+  }
+}
+
+.bg-color {
+  /* background: linear-gradient(to right, #fc842e 5%, #fcc221 95%); */
+  background: linear-gradient(to right, #3c4a87fc 5%, #9c167a96 95%);
+  border-radius: 34px;
+}
+
+.right-container h1:nth-of-type(1) {
+  color: #eee;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.main-color {
+  color: #eee !important;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+input {
+  /* border: 1px solid black; */
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.right-container header {
+  padding: 40px;
+}
+
+::placeholder {
+  padding-left: 10px;
+}
+
+/* .right-container .pets-photo button i {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 16px;
+} */
+.right-container label {
+  color: rgba(0, 0, 0, 0.738);
+}
+
+::placeholder {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* upload-photo-label-2 label {
+  color: rgb(209, 28, 28) !important;
+} */
+
+/* .right-section {
+  border-radius: 34px;
+  width: 570px;
+} */
+
+.right-section footer .set {
+  align-items: center;
+  /* background: linear-gradient(to right, #fc842e 5%, #fcc221 95%); */
+  /* background: linear-gradient(to right, #3c4a87fc 5%, #9c167a96 95%); */
+
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 40px;
+  border-radius: 34px;
+}
+
+.right-section footer button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  height: 38px;
+  line-height: 38px;
+  width: 100px;
+  border-radius: 19px;
+}
+
+.right-section footer #back {
+  color: #fff;
+  background: #130e87;
+  transition: 0.2s all ease-in-out;
+}
+
+.right-section footer #back:hover {
+  /* background: #fa2989d4;
+  color: #fff; */
+  background: #fff;
+  color: #130e87;
+  font-weight: bold;
+}
+
+.right-section footer #next {
+  background: #130e87;
+  border: 1px solid transparent;
+  color: #fff;
+}
+
+.right-section footer #next:hover {
+  background: white;
+  color: #130e87;
+  font-weight: bold;
+}
+
+.main-and-image {
+  display: flex;
+  gap: 100px;
+}
+
+.main-and-image img {
+  max-width: 115%;
+}
+
+.pets-name label,
+.pets-breed label,
+.pets-age label,
+.pets-gender label,
+.Type-of-pet label,
+.pets-weight label,
+.pets-description label {
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+.pets-name label.main-div-ar,
+.pets-breed label.main-div-ar,
+.pets-age label.main-div-ar,
+.pets-gender label.main-div-ar,
+.Type-of-pet label.main-div-ar,
+.pets-weight label.main-div-ar,
+.pets-description label.main-div-ar,
+.pic-span.main-div-ar {
+  padding-right: 10px;
+  padding-left: 0px;
+}
+
+.pets-breed label,
+.pets-age label,
+.pets-gender label,
+.Type-of-pet label,
+.pets-weight label,
+.pets-description label {
+  padding-top: 12px;
+}
+
+.pets-name input,
+.pets-breed input,
+.pets-age input,
+.pets-gender input,
+.Type-of-pet input,
+.pets-weight input,
+.pets-description textarea {
+  background-color: #fff;
+  width: 200px;
+  height: 37px;
+  padding-left: 10px;
+  /* border-radius: 7px; */
+  border-radius: 14px;
+}
+
+.heading-of-data {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.Type-of-pet {
+  text-align: center;
+  padding-top: 25px;
+}
+
+.radio-container {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* border-radius: 4px; */
+  border-radius: 14px;
+  display: inline-block;
+  padding: 5px;
+}
+
+.radio-container label {
+  background: transparent;
+  border: 1px solid transparent;
+  /* border-radius: 2px; */
+  border-radius: 12px;
+  display: inline-block;
+  line-height: 26px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: 0.2s all ease-in-out;
+}
+
+.male-or-female {
+  width: 200px;
+  height: 37px;
+  padding-top: 3px;
+}
+
+.male-or-female label {
+  height: 30px;
+  padding-top: 2px;
+  width: 94.2px;
+}
+
+.typ-of-pets label {
+  height: 26px;
+  height: 31px;
+  padding-top: 2px;
+  width: 94px;
+}
+
+.radio-container input[type="radio"] {
+  display: none;
+}
+
+.set-2,
+.set-3,
+.set-1 {
+  display: flex;
+  gap: 46px;
+  margin-block: 5px;
+}
+
+.set-4 > label {
+  padding-top: 24px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+}
+
+.icon-upload {
+  position: absolute;
+  color: transparent;
+  padding-left: 4px;
+  font-size: 20px;
+  transition: all 0.3s;
+  /* left: 158px; */
+  left: 198px;
+  line-height: 2.6;
+  top: -22%;
+}
+
+.pic:hover .icon-upload {
+  color: #ff3190;
+  left: 160px;
+  top: -22%;
+  font-size: 20px;
+  line-height: 2.6;
+}
+
+&:hover {
+  background-color: darken(#ee6d9e, 30%);
+
+  span {
+    transform: translateY(300%);
+  }
+
+  &::before {
+    top: 0;
+  }
+}
+
+.typ-of-pets {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio-container input[type="radio"]:checked + label {
+  background: #fb54a1b3;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.fake-input {
+  display: none;
+}
+
+.pic {
+  position: relative;
+  font-size: 16px;
+  width: 200px;
+  height: 37px;
+  padding-left: 13px;
+  padding-top: 7px;
+  border-radius: 14px;
+  /* background: linear-gradient(to right, #aa4b6b, #6b6b83, #3b8d99); */
+  background-color: #fff;
+  color: white;
+  /* font-family: sans-serif; */
+  transition: all 0.5s;
+  /* box-shadow: 1px 1px 15px 3px gray; */
+}
+
+.pets-name input.label-ar,
+.pets-breed input.label-ar,
+.pets-age input.label-ar,
+.pets-gender input.label-ar,
+.Type-of-pet input.label-ar,
+.pets-weight input.label-ar,
+.pets-description textarea.label-ar,
+.pic.label-ar {
+  /* background-color: #fff;
+  width: 200px;
+  height: 37px; */
+  padding-right: 13px;
+  padding-left: 0px;
+  /* border-radius: 7px; */
+  /* border-radius: 14px; */
+}
+
+.set-4 > label.main-div-ar {
+  padding-right: 10px;
+  padding-left: 0px;
+}
+
+.pic:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.pic-span {
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+/* user Data */
+
+.set-2-user {
+  margin-top: 41px;
+}
+
+.image-of-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1200px) {
+  .main-and-image {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .main-and-image {
+    display: block;
+  }
+
+  .image-of-section {
+    /* visibility: hidden; */
+    display: none;
+  }
+
+  .main-and-image {
+    width: 100% !important;
+    display: block;
+  }
+
+  /* .responsive-header {
+    width: 735px;
+  } */
+  .set-2,
+  .set-3,
+  .set-1 {
+    justify-content: center;
+  }
+
+  .typ-of-pets {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    height: 43px;
+  }
+
+  .typ-of-pets label {
+    height: 34px;
+    padding-top: 3px;
+  }
+
+  .pets-name input,
+  .pets-breed input,
+  .pets-age input,
+  .pets-gender input,
+  .Type-of-pet input,
+  .pets-weight input,
+  .pets-description textarea {
+    width: 210px !important;
+    height: 39px !important;
+  }
+
+  .male-or-female,
+  .pic {
+    width: 210px;
+    height: 39px;
+  }
+
+  .male-or-female label {
+    height: 31px;
+    width: 99.2px;
+  }
+}
+
+@media (max-width: 600px) {
+  .set-2,
+  .set-3,
+  .set-1 {
+    display: flex;
+    /* flex-direction: column; */
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    margin-block: 5px;
+  }
+
+  /* .pic-span {
+    padding-top: 12px;
+  } */
+
+  /* .main-color {
+    display: flex !important;
+    justify-content: center;
+  } */
+  .pets-name input,
+  .pets-breed input,
+  .pets-age input,
+  .pets-gender input,
+  .Type-of-pet input,
+  .pets-weight input,
+  .pets-description textarea {
+    width: 190px !important;
+    height: 39px !important;
+  }
+
+  .male-or-female,
+  .pic {
+    width: 190px;
+    height: 39px;
+  }
+
+  .male-or-female {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .male-or-female label {
+    height: 31px;
+    width: 87.2px;
+  }
+
+  .pic-span {
+    padding-top: 0px;
+  }
+
+  .pic:hover .icon-upload {
+    color: #ff3190;
+    padding-left: 4px;
+    left: 156px;
+    top: -12%;
+    font-size: 18px;
+    line-height: 2.6;
+    padding-left: 0px;
+  }
+}
+.pic:hover .icon-upload.label-ar {
+  left: 7px;
+}
+
+.icon-upload.label-ar {
+  left: -33px;
+}
+@media (max-width: 500px) {
+  .heading-of-section {
+    font-size: 22px;
+    padding-top: 120px;
+  }
+
+  .my-container {
+    margin-top: 0px;
+  }
+}
+
+@media (max-width: 470px) {
+  .pets-breed label,
+  .pets-age label,
+  .Type-of-pet label,
+  .pets-weight label,
+  .pets-description label,
+  .first-label-of-gender,
+  .pic-span {
+    padding-top: 30px !important;
+  }
+
+  .set-2,
+  .set-3,
+  .set-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+    margin-block: 5px;
+  }
+
+  .set-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-block: 5px;
+  }
+
+  .typ-of-pets {
+    width: 334px;
+  }
+}
+
+@media (max-width: 419px) {
+  .jumbotron {
+    top: 80px;
+  }
+}
+
+@media (max-width: 395px) {
+  .typ-of-pets {
+    width: 256px;
+  }
+
+  .right-section footer .set {
+    gap: 53px;
+  }
+}
+.form-control {
+  background-color: #fff !important;
+  width: 200px !important;
+  height: 37px !important;
+  padding-left: 10px !important;
+  border-radius: 14px !important;
+}

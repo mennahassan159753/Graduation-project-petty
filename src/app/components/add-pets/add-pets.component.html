@@ -1,0 +1,193 @@
+<app-loader *ngIf="isLoading"></app-loader>
+
+<div class="hero">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="second-img"></div>
+  </div>
+</div>
+<h2 class="heading-of-section"> {{"uploadYourPets.firstTextOfSection" | translate}}
+  <i class="fa-solid fa-paw"></i>
+</h2>
+
+<!-- stepper -->
+
+<div class='my-container'>
+  <div class="all-section">
+    <div class=" main-and-image">
+      <div class="bg-color">
+        <div class='right-section'>
+          <form [formGroup]="addPetForAdoptionForm">
+            <header *ngIf="currentStep === 1">
+              <div class='right-container' formGroupName="pet_information">
+                <header class="responsive-header" [attr.dir]="getDirection()">
+                  <h1 class="heading-of-data"> {{"uploadYourPets.petData" | translate}}</h1>
+                  <div class='set set-1 '>
+
+                    <div class='pets-name'>
+                      <label for='pets-name ' class="main-color "
+                        [ngClass]="{'main-div-ar': currentLang==='ar'}">{{"uploadYourPets.name" | translate}}</label>
+                      <input id='pets-name' formControlName="name" [placeholder]='"uploadYourPets.Petname"|
+                        translate' type='text' [ngClass]="{'label-ar': currentLang==='ar'}">
+                    </div>
+
+
+
+                    <label class="upload-photo">
+                      <span class="main-color pic-span"
+                        [ngClass]="{'main-div-ar': currentLang==='ar'}">{{"uploadYourPets.petPhoto" | translate}}
+                      </span>
+                      <label for="pic" class="pic" [ngClass]="{'label-ar': currentLang==='ar'}">
+                        <span [ngClass]="{'main-div-ar': currentLang==='ar'}">{{"uploadYourPets.uploadPhoto" |
+                          translate}} </span>
+                        <i class="fa-solid fa-cloud-arrow-up icon-upload"
+                          [ngClass]="{'label-ar': currentLang==='ar'}"></i>
+                        <input type="file" id="pic" class="fake-input" (change)="onUpload($event)">
+                        <input type="text" [value]="selectedFileName" style="display: none;">
+
+                      </label>
+                    </label>
+
+
+                  </div>
+                  <div class='set set-2'>
+                    <div class='pets-breed'>
+                      <label for='pets-breed' class="main-color"
+                        [ngClass]="{'main-div-ar': currentLang==='ar'}">{{"carouselAdoptingPets.breed" | translate
+                        }}</label>
+                      <input id='pets-breed' formControlName="breed" [placeholder]='"uploadYourPets.petBreed"|
+                        translate' type='text' [ngClass]="{'label-ar': currentLang==='ar'}">
+                    </div>
+
+
+                    <div class='pets-age'>
+                      <label for=' pets-age' class="main-color"
+                        [ngClass]="{'main-div-ar': currentLang==='ar'}">{{"carouselAdoptingPets.age" | translate
+                        }}</label>
+                      <input id='pets-age' formControlName="age" [placeholder]='"uploadYourPets.Petage"|
+                        translate' type='text' [ngClass]="{'label-ar': currentLang==='ar'}">
+                    </div>
+
+                  </div>
+                  <div class='set set-3'>
+                    <div class='pets-gender'>
+                      <label for='pet-gender-female' class="main-color first-label-of-gender"
+                        [ngClass]="{'main-div-ar': currentLang==='ar'}">{{"carouselAdoptingPets.gender" | translate
+                        }}</label>
+                      <div class='radio-container male-or-female'>
+                        <input checked='' formControlName="gender" id='pet-gender-female' type='radio'
+                          [value]="currentLang==='ar'? 'أنثي': 'female'" [ngClass]="{'label-ar': currentLang==='ar'}">
+                        <label for='pet-gender-female'>{{"uploadYourPets.female" | translate}} </label>
+
+
+                        <input id='pet-gender-male' formControlName="gender" type='radio'
+                          [value]="currentLang==='ar'? 'ذكر' : 'male'" [ngClass]="{'label-ar': currentLang==='ar'}">
+                        <label for='pet-gender-male'>{{"uploadYourPets.male" | translate}} </label>
+
+                      </div>
+                    </div>
+
+
+                    <div class="pets-weight pets-description" [ngClass]="{'main-div-ar': currentLang==='ar'}">
+                      <label for="exampleFormControlTextarea1" class="form-label main-color"
+                        [ngClass]="{'main-div-ar': currentLang==='ar'}">{{"uploadYourPets.description" |
+                        translate}}</label>
+                      <textarea class="form-control " formControlName="description" [placeholder]='"uploadYourPets.aboutPet"|
+                        translate' id="exampleFormControlTextarea1" rows="1"
+                        [ngClass]="{'label-ar': currentLang==='ar'}"></textarea>
+                    </div>
+
+
+                    <!-- <div class='pets-weight'>
+                      <label for='pet-weight' class="main-color">Weight</label>
+                      <input id='pet-weight' formControlName="weight" placeholder="Pet's Weight" name=' pet-weight'
+                        type='text'>
+                    </div> -->
+                  </div>
+
+                  <div class='set set-4'>
+                    <label for='pet-spayed' class="main-color"
+                      [ngClass]="{'main-div-ar': currentLang==='ar'}">{{"uploadYourPets.typOfPets" | translate}}</label>
+                    <div class='radio-container typ-of-pets'>
+                      <input checked='' id='Dog' formControlName="species" type='radio' value='Dog'
+                        [ngClass]="{'label-ar': currentLang==='ar'}">
+                      <label for='Dog'>{{"uploadYourPets.dog" | translate}}</label>
+                      <input id='Cat' formControlName="species" type='radio' value='Cat'
+                        [ngClass]="{'label-ar': currentLang==='ar'}">
+                      <label for='Cat'>{{"uploadYourPets.cat" | translate}}</label>
+                      <input id='Bird' formControlName="species" type='radio' value='Bird'
+                        [ngClass]="{'label-ar': currentLang==='ar'}">
+                      <label for='Bird'>{{"uploadYourPets.bird" | translate}}</label>
+                      <input id='Other' formControlName="species" type='radio' value='Other'
+                        [ngClass]="{'label-ar': currentLang==='ar'}">
+                      <label for='Other'>{{"uploadYourPets.other" | translate}}</label>
+                    </div>
+                  </div>
+
+                </header>
+
+              </div>
+            </header>
+            <header *ngIf="currentStep === 2">
+              <div class='right-container'>
+                <header [attr.dir]="getDirection()">
+                  <h1 class="heading-of-data">{{"uploadYourPets.userData" |
+                    translate}}</h1>
+                  <div class='set set-1'>
+                    <div class='pets-breed'>
+                      <label for='fullname' class="main-color">{{"uploadYourPets.fullName" |
+                        translate}}</label>
+                      <input id='fullname' formControlName="fullname" [placeholder]='"uploadYourPets.userName"|
+                        translate' type='text' [ngClass]="{'label-ar': currentLang==='ar'}">
+                    </div>
+
+                    <div class='pets-age'>
+                      <label for='address' class="main-color">{{"uploadYourPets.address" |
+                        translate}}</label>
+                      <input id='address' formControlName="address" [placeholder]='"uploadYourPets.userAddress"|
+                        translate' type='text' [ngClass]="{'label-ar': currentLang==='ar'}">
+                    </div>
+                  </div>
+                  <div class='set set-2 set-2-user'>
+                    <div class='pets-breed'>
+                      <label for='phone_number' class="main-color">{{"footer.phone" | translate
+                        }}</label>
+                      <input id='phone_number' formControlName="phone_number" [placeholder]='"uploadYourPets.userPhone"|
+                        translate' type='text' [ngClass]="{'label-ar': currentLang==='ar'}">
+                    </div>
+
+                    <div class='pets-age'>
+                      <label for='email' class="main-color">{{"footer.email" | translate
+                        }}</label>
+                      <input id='email' formControlName="email" [placeholder]='"uploadYourPets.userEmail"|
+                        translate' type='text' [ngClass]="{'label-ar': currentLang==='ar'}">
+                    </div>
+                  </div>
+                </header>
+
+              </div>
+            </header>
+            <footer>
+              <div class='set'>
+                <button id='back' *ngIf="currentStep === 1" style="background: transparent; border: none;"></button>
+                <button id='back' (click)="prevStep()" *ngIf="currentStep === 2">{{"uploadYourPets.back" |
+                  translate}}</button>
+                <button id='next' (click)="nextStep()" *ngIf="currentStep === 1">{{"uploadYourPets.next" |
+                  translate}}</button>
+                <button id='next' (click)="onSubmit()" *ngIf="currentStep === 2">{{"uploadYourPets.submit" |
+                  translate}}</button>
+
+              </div>
+            </footer>
+          </form>
+
+        </div>
+      </div>
+
+
+      <div class="image-of-section">
+        <img src="../../../assets/upload-your-pets/introimg1.jpg" alt="">
+      </div>
+
+    </div>
+  </div>
+</div>

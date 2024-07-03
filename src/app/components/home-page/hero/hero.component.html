@@ -1,0 +1,20 @@
+<div class="landing" [attr.dir]="getDirection()">
+  <div class="my-container" [ngClass]="{'ar': currentLang==='ar'}">
+    <div class="text left-hero" [ngClass]="{'ar': currentLang==='ar'}">
+      <h1>{{"heroOfHomPage.welcomeText" | translate }}</h1>
+      <p>{{"heroOfHomPage.explain" | translate }}</p>
+      <div class="Our-Services-btn rounded-pill d-inline-block" id="#our-services">
+        <button type="button" class="btn" (click)="scrollToServices()"
+          [ngClass]="{'btn-services-ar': currentLang==='ar'}">
+          {{"heroOfHomPage.ourservices"|translate}}
+        </button>
+      </div>
+    </div>
+    <div class="image right-hero" [ngClass]="{'ar': currentLang==='ar'}">
+      <img class="img-fluid" src="../../../../assets/pet-services-pets-care.png.png" alt="">
+    </div>
+  </div>
+  <div class="wave img-fluid">
+    <img src="../../../assets/wave (3).png" alt="">
+  </div>
+</div>
